@@ -1,0 +1,13 @@
+/target/
+**/*.rs.bk
+
+real-agent-results.md
+
+__pycache__/
+*.py[cod]
+
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

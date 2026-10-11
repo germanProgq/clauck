@@ -1,0 +1,41 @@
+[package]
+name = "clauck"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.89"
+description = "Reversible, advisory AI-edit policies for ordinary project folders"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+
+[[bin]]
+name = "clauck"
+path = "src/main.rs"
+
+[lib]
+name = "clauck"
+path = "src/lib.rs"
+
+[dependencies]
+argon2 = { version = "0.5.3", features = ["std"] }
+clap = { version = "4.6", features = ["derive"] }
+directories = "6.0"
+getrandom = "0.2"
+hex = "0.4"
+rpassword = "7.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0", features = ["preserve_order"] }
+sha2 = "0.10"
+zeroize = "1.8"
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[dev-dependencies]
+assert_cmd = "2.0"
+predicates = "3.1"
+tempfile = "3.27"
+
+[profile.dev.package.argon2]
+opt-level = 3
+[profile.dev.package.blake2]
+opt-level = 3
